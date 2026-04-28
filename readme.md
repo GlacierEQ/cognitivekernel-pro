@@ -10,10 +10,13 @@
 <p align="center"><img src="results.png" alt="" width="90%"/></p>
 
 - A state-of-the-art open-source agent utilizing (as many as possible) free tools; the only paid tool is the Google Search API, which can be replaced with the free DuckDuckGo API if needed.
-- Fully reproducible open-source SFT training recipe that outperforms RL-based models like WebDancer and WebSailor—no RL required.
+- Fully reproducible open-source SFT training recipe that outperforms RL-based models like WebDancer and WebSailor—no RL required. We also provide RL training recipes (subgoal-GRPO) for further improvements.
 
 ## Updates
 
+- 04/22/2026: Updated manuscript with RL experiments and the subgoal-GRPO training algorithm. See the updated paper [here](https://arxiv.org/abs/2508.00414).
+- 04/20/2026: Technical report released — [Training LLM Agents for Spontaneous, Reward-Free Self-Evolution via World Knowledge Exploration](https://arxiv.org/abs/2604.18131), exploring better web world modeling and native self-evolution based on the CK-Pro framework.
+- 04/08/2026: Several components from the CK-Pro report are accepted at ACL 2026! [WebAggregator](https://arxiv.org/abs/2510.14438) (Main) on synthesizing DeepResearch agent SFT and RL data, [Inference-Time Scaling of Verification: Self-Evolving Deep Research Agents via Test-Time Rubric-Guided Verification](https://arxiv.org/abs/2601.15808) (Findings) on inference-time self-evolution, and [Verified Critical Step Optimization for LLM Agents](https://arxiv.org/abs/2602.03412) (Findings) on offline RL for better critical step assignment.
 - 10/17/2025: A technical report on synthesizing DeepResearch agent data has been released! Checkout the paper [Explore to Evolve: Scaling Evolved Aggregation Logic via Proactive Online Exploration for Deep Research Agents](https://arxiv.org/abs/2510.14438), the GitHub repo [WebAggregator](https://github.com/Tencent/WebAggregator).
 
 ## Running Cognitive Kernel-Pro (CogKernel-Pro for short) Agent
@@ -291,7 +294,10 @@ python convert_sft.py --input_file /path/to/trajectory.output.jsonl --output_fil
 - [DocBench](https://github.com/Anni-Zou/DocBench): Data generation for document agents.
 - [PersonaHub](https://github.com/tencent-ailab/persona-hub): Scaling Synthetic Data Creation with 1,000,000,000 Personas
 - [MobileGUI-RL](https://arxiv.org/abs/2507.05720): MobileGUI-RL: Advancing Mobile GUI Agent through Reinforcement Learning in Online Environment
-- [WebAggregator](https://github.com/Tencent/WebAggregator): Explore to Evolve: Scaling Evolved Aggregation Logic via Proactive Online Exploration for Deep Research Agents
+- [WebAggregator](https://github.com/Tencent/WebAggregator) (ACL 2026 Main): Explore to Evolve: Scaling Evolved Aggregation Logic via Proactive Online Exploration for Deep Research Agents
+- [Inference-Time Scaling of Verification](https://arxiv.org/abs/2601.15808) (ACL 2026 Findings): Self-Evolving Deep Research Agents via Test-Time Rubric-Guided Verification
+- [Verified Critical Step Optimization](https://arxiv.org/abs/2602.03412) (ACL 2026 Findings): Verified Critical Step Optimization for LLM Agents
+- [World Knowledge Exploration](https://arxiv.org/abs/2604.18131): Training LLM Agents for Spontaneous, Reward-Free Self-Evolution via World Knowledge Exploration
 
 ## Cite this work
 
