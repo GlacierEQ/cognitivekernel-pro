@@ -315,4 +315,4 @@ python convert_sft.py --input_file /path/to/trajectory.output.jsonl --output_fil
 
 #### Contact
 
-tianqfang(at)tencent(dot)com
+fangtq229(at)gmail(dot)com
