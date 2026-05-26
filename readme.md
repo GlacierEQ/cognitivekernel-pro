@@ -3,15 +3,21 @@
 
 
 
-[![arXiv](https://img.shields.io/badge/arXiv-2508.00414-b31b1b.svg)](https://arxiv.org/abs/2508.00414) [![Data](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-CognitiveKernel--Pro--Data-ffc107?color=ffc107&logoColor=white)](https://huggingface.co/datasets/CognitiveKernel/CognitiveKernel-Pro-Query) [![Model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-CognitiveKernel--Pro--Model-ffc107?color=ffc107&logoColor=white)](https://huggingface.co/CognitiveKernel/Qwen3-8B-CK-Pro)
+[![arXiv](https://img.shields.io/badge/arXiv-2508.00414-b31b1b.svg)](https://arxiv.org/abs/2508.00414) [![Data](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-CognitiveKernel--Pro--Data-ffc107?color=ffc107&logoColor=white)](https://huggingface.co/datasets/CognitiveKernel/CognitiveKernel-Pro-Query)  [![Data](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-CognitiveKernel--Pro--SFT-ffc107?color=ffc107&logoColor=white)](https://huggingface.co/datasets/CognitiveKernel/CognitiveKernel-Pro-SFT) [![Model](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-CognitiveKernel--Pro--Model-ffc107?color=ffc107&logoColor=white)](https://huggingface.co/CognitiveKernel/Qwen3-8B-CK-Pro)
 
 <!-- [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  -->
 
 <p align="center"><img src="results.png" alt="" width="90%"/></p>
 
 - A state-of-the-art open-source agent utilizing (as many as possible) free tools; the only paid tool is the Google Search API, which can be replaced with the free DuckDuckGo API if needed.
-- Fully reproducible open-source SFT training recipe that outperforms RL-based models like WebDancer and WebSailor—no RL required.
+- Fully reproducible open-source SFT training recipe that outperforms RL-based models like WebDancer and WebSailor—no RL required. We also provide RL training recipes (subgoal-GRPO) for further improvements.
 
+## Updates
+
+- 04/22/2026: Updated manuscript with RL experiments and the subgoal-GRPO training algorithm. See the updated paper [here](https://arxiv.org/abs/2508.00414).
+- 04/20/2026: Technical report released — [Training LLM Agents for Spontaneous, Reward-Free Self-Evolution via World Knowledge Exploration](https://arxiv.org/abs/2604.18131), exploring better web world modeling and native self-evolution based on the CK-Pro framework.
+- 04/08/2026: Several components from the CK-Pro report are accepted at ACL 2026! [WebAggregator](https://arxiv.org/abs/2510.14438) (Main) on synthesizing DeepResearch agent SFT and RL data, [Inference-Time Scaling of Verification: Self-Evolving Deep Research Agents via Test-Time Rubric-Guided Verification](https://arxiv.org/abs/2601.15808) (Findings) on inference-time self-evolution, and [Verified Critical Step Optimization for LLM Agents](https://arxiv.org/abs/2602.03412) (Findings) on offline RL for better critical step assignment.
+- 10/17/2025: A technical report on synthesizing DeepResearch agent data has been released! Checkout the paper [Explore to Evolve: Scaling Evolved Aggregation Logic via Proactive Online Exploration for Deep Research Agents](https://arxiv.org/abs/2510.14438), the GitHub repo [WebAggregator](https://github.com/Tencent/WebAggregator).
 
 ## Running Cognitive Kernel-Pro (CogKernel-Pro for short) Agent
 
@@ -235,7 +241,7 @@ Check out [detailed notes](ck_pro/readme.md) for more details.
 
 ## Data 
 
-The queries and answers of Multi-hop URLQA and AgentWebQA is [here](https://huggingface.co/datasets/CognitiveKernel/CognitiveKernel-Pro-Query). The full SFT data is coming soon.
+The queries and answers of Multi-hop URLQA and AgentWebQA is [here](https://huggingface.co/datasets/CognitiveKernel/CognitiveKernel-Pro-Query). A portion of the SFT data that is permitted for open-source release due to licensing restrictions is available [here](https://huggingface.co/datasets/CognitiveKernel/CognitiveKernel-Pro-SFT).
 
 We release the checkpoint of fine-tuned Qwen3-8B-CK-Pro [here](https://huggingface.co/CognitiveKernel/Qwen3-8B-CK-Pro).
 
@@ -279,6 +285,20 @@ Run the code [convert_sft.py](data/convert_sft.py) and choose a type of rejectio
 python convert_sft.py --input_file /path/to/trajectory.output.jsonl --output_file XXX.sft.jsonl
 ```
 
+## Friendly links to relevant agents works from Tencent AI Lab
+
+- [Cognitive Kernel](https://github.com/Tencent/CogKernel) (NAACL 2025 Demo): The base version of Cognitive Kernel-Pro agents.
+- [WebVoyager](https://github.com/MinorJerry/WebVoyager) and [OpenWebVoyager](https://github.com/MinorJerry/OpenWebVoyager/) (ACL 2024 and ACL 2025): Self-improving multimodal agents. 
+- [WebEvolver, WebCoT](https://github.com/Tencent/SelfEvolvingAgent) (EMNLP 2025 Main and Findings): Agents post-training with world model and cognitive behavior injections to CoT. 
+- [Web Agents Rollback](https://arxiv.org/abs/2504.11788): Enhancing Web Agents with Explicit Rollback Mechanisms
+- [DocBench](https://github.com/Anni-Zou/DocBench): Data generation for document agents.
+- [PersonaHub](https://github.com/tencent-ailab/persona-hub): Scaling Synthetic Data Creation with 1,000,000,000 Personas
+- [MobileGUI-RL](https://arxiv.org/abs/2507.05720): MobileGUI-RL: Advancing Mobile GUI Agent through Reinforcement Learning in Online Environment
+- [WebAggregator](https://github.com/Tencent/WebAggregator) (ACL 2026 Main): Explore to Evolve: Scaling Evolved Aggregation Logic via Proactive Online Exploration for Deep Research Agents
+- [Inference-Time Scaling of Verification](https://arxiv.org/abs/2601.15808) (ACL 2026 Findings): Self-Evolving Deep Research Agents via Test-Time Rubric-Guided Verification
+- [Verified Critical Step Optimization](https://arxiv.org/abs/2602.03412) (ACL 2026 Findings): Verified Critical Step Optimization for LLM Agents
+- [World Knowledge Exploration](https://arxiv.org/abs/2604.18131): Training LLM Agents for Spontaneous, Reward-Free Self-Evolution via World Knowledge Exploration
+
 ## Cite this work
 
 ```
@@ -295,4 +315,4 @@ python convert_sft.py --input_file /path/to/trajectory.output.jsonl --output_fil
 
 #### Contact
 
-tianqfang(at)tencent(dot)com
+fangtq229(at)gmail(dot)com
